@@ -1,0 +1,34 @@
+.btn {
+  background-color: #54602f;
+  color: #cbd2a4;
+}
+.btn:hover {
+  outline: 2px solid #cbd2a4;
+  color: #cbd2a4;
+}
+h1 {
+  color: #543c2e;
+}
+.head2 {
+  color: #8c926a;
+}
+p {
+  color: #9a7e6f;
+}
+h3 {
+  color: #a9b57f;
+}
+h4 {
+  color: #8a9a64;
+}
+h5 {
+  color: #6a7a4c;
+}
+.img-hover {
+  border-radius: 10%;
+}
+.img-hover:hover {
+  padding: 2px;
+  box-shadow: 10px solid #543c2e;
+  transition: 0.3s ease-in-out;
+}

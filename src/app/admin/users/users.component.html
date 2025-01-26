@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div style="min-height: 100vh;" class="bg-success text-light col-lg-3 col-sm-3 d-flex flex-column p-3 shadow">
+      <h5 class="text-center">
+        <a class="navbar-brand ms-3" routerLink="" style="color: #cbd2a4"><i class="fa-solid fa-utensils me-2"></i> TastyTrails Admin</a>
+      </h5>
+
+      <a class="nav-link ms-3 mb-2" routerLink="admin" style="color: #cbd2a4">Dashboard</a>
+      <a class="nav-link ms-3 mb-2" routerLink="/admin/recipe/add" style="color: #cbd2a4">Manage Recipe</a>
+      <a class="nav-link ms-3 mb-2" routerLink="/admin/all-recipes" style="color: #cbd2a4">Recipe List</a>
+      <a class="nav-link ms-3 mb-2" routerLink="/admin/all-request" style="color: #cbd2a4">Requests</a>
+      <a class="nav-link ms-3 mb-2" routerLink="/admin/all-downloads" style="color: #cbd2a4">Downloads</a>
+      <a class="nav-link ms-3 mb-2" routerLink="/admin/all-users" style="color: #cbd2a4">Users</a>
+    </div>
+    <div class="col">
+      <h1 class="text-xenter text-primary fw-bolder">All Users</h1>
+      <table class="table sahdow my-5">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of allUsers; track $index; let i = $index) {
+            <tr>
+              <td>{{ i + 1 }}</td>
+              <td>{{user.username}}</td>
+              <td>{{user.email}}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

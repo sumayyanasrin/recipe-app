@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <h5>Filter</h5>
+            <button class="btn mt-5">All</button>
+            <br>
+            <!-- cuisine type -->
+            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+               Cuisine Type
+              </button><br>
+              <div class="collapse" id="collapseExample">
+                <Button class="btn" (click)="filterRecipes('cuisine','Italian')">Italian</Button>
+                <Button class="btn" (click)="filterRecipes('cuisine','Asian')">Asian</Button>
+                <Button class="btn" (click)="filterRecipes('cuisine','American')">American</Button>
+                <Button class="btn" (click)="filterRecipes('cuisine','Mexican')">Mexican</Button>
+                <Button class="btn" (click)="filterRecipes('cuisine','Indian')">Indian</Button>
+                <Button class="btn" (click)="filterRecipes('cuisine','Pakistani')">Pakistani</Button>
+                <Button class="btn" (click)="filterRecipes('cuisine','Japanese')">Japanese</Button>
+                <Button class="btn" (click)="filterRecipes('cuisine','Thai')">Thai</Button>
+              </div>
+
+
+              <!-- Meal type -->
+
+              <button class="btn  dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                Meal Type
+               </button>
+               <div class="collapse" id="collapseExample1">
+                <Button class="btn" (click)="filterRecipes('mealType','Dinner')">Dinner</Button>
+                <Button class="btn" (click)="filterRecipes('mealType','Lunch')">Lunch</Button>
+                <Button class="btn" (click)="filterRecipes('mealType','Dessert')">Dessert</Button>
+                <Button class="btn" (click)="filterRecipes('mealType','Appetizer')">Appetizer</Button>
+                <Button class="btn" (click)="filterRecipes('mealType','Breakfast')">Breakfast</Button>
+                <Button class="btn" (click)="filterRecipes('mealType','Beverage')">Beverage</Button>
+                <Button class="btn" (click)="filterRecipes('mealType','Salad')">Salad</Button>
+              </div>
+
+        </div>
+        <div class="col-lg-8">
+            <div class="d-flex justify-content-center align-items-center">
+                <h1>All Recipes</h1>
+                <input type="text" [(ngModel)]="searchKey" class="form-control w-50 ms-auto" placeholder="search your recipes">
+            </div>
+            <div class="row my-3">
+                @if(allRecipes.length>0){
+                    @for(recipe of allRecipes|search:searchKey| paginate: { itemsPerPage: 8, currentPage: p }; track $index){
+                        <div class="col-lg-4">
+                            <div class="p-3">
+                                <img width="100%" (click)="viewRecipes(recipe._id)" [src]="recipe.image" alt="">
+                                <div class="card-body">
+                                    <h4>{{recipe.name}}</h4>
+                                    <p class="text-danger">Cuisine:<span class="text-danger">{{recipe.cuisine}}</span></p>
+                                    <p class="text-danger">mealType:<span class="text-danger">{{recipe.mealType}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    @if ((allRecipes|search:searchKey).length==0) {
+                        <div class="fw-bolder text-danger">Recipes Not Found...</div>
+                    }
+
+                }@else{
+                    <div class="fw-bolder text-danger">Recipes Not Found...</div>
+                }
+               
+               
+                <div class="text-center">
+                    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

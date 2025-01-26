@@ -1,0 +1,20 @@
+
+  .nav-link:hover {
+    color: #E9EED9 !important; 
+  }
+  .dropdown button:hover{
+    color: #E9EED9 !important; 
+
+  }
+  .dropdown-menu{
+    background-color: #9A7E6F;
+    padding: 10px;
+  }
+
+  .dropdown-item:hover{
+    
+    background-color: #E9EED9;
+    color: #54473F !important; 
+    border-radius: 50px; 
+    transition: all 0.3s ease-in-out;
+  }
